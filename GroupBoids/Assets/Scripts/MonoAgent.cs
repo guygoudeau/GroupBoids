@@ -5,15 +5,16 @@ public class MonoAgent : MonoBehaviour
 {
     public Agent agent;
 
-    public GameObject monoAgent;
-
-
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
 
-        monoAgent.GetComponent<Seeking>().Sphere.transform.position = new Vector3(agent.Position.x, agent.Position.y, agent.Position.z);
-        monoAgent.GetComponent<Seeking>().currentVelocity = new Vector3(agent.Velocity.x, agent.Velocity.y, agent.Velocity.z);
-        monoAgent.GetComponent<Seeking>().Mass = agent.Mass;
+        Seeking compSeek = gameObject.GetComponent<Seeking>(); //Get Reference to Gameobject's Seeking Behavior
+
+        //Recieves information from Agent Script
+        compSeek.Sphere.transform.position = new Vector3(agent.Position.x, agent.Position.y, agent.Position.z);
+        compSeek.currentVelocity = new Vector3(agent.Velocity.x, agent.Velocity.y, agent.Velocity.z);
+        compSeek.Mass = agent.Mass;
     }
 	
 	// Update is called once per frame
