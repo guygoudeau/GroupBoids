@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     { 
+        //this loop creates random starting positions for the boids
         for (int i = 0; i <= amount; ++i)
 	    {
             if (i % 4 == 0)
@@ -40,14 +41,14 @@ public class Spawner : MonoBehaviour
             }
             else
             {
-                int x = Random.Range(1, 100);
+                int x = Random.Range(1, 100); 
                 int y = Random.Range(95, 100);
                 int z = Random.Range(1, 100);
 
                 Spawn = new Vector3(x, y, z);
                 Instantiate(Boid, Spawn, Quaternion.identity);
             }
-            Boid.GetComponent<Seeking>().Target = this.gameObject;
+            Boid.GetComponent<Seeking>().Target = this.gameObject; //gives a reference of This GameObject
         }
 
 	}
