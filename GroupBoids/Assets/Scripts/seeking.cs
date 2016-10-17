@@ -11,6 +11,7 @@ public class seeking : MonoBehaviour
     private Vector3 Steering;
     public float SteeringMag = 0.1f;
     private Agent agent;
+    public bool Behavior = true;
 
     public Vector3 Norm(Vector3 x) //Fuction to normalize a Vector.
     {
@@ -28,6 +29,20 @@ public class seeking : MonoBehaviour
         return c; //Return the normalized vector
     }
 
+    void seek()
+    {
+        Displacement = Norm(Target.transform.position - gameObject.transform.position); //sets the Displacement from the Target's position to the Sphere's Position
+        Steering = SteeringMag * Vector3.ClampMagnitude(Displacement - Utilities.AVec3toUVec3(agent.Velocity), 1.0f).normalized; //Uses the Displacement and the current velocity to create a steering vector
+        agent.Velocity += Utilities.UVec3toAVec3(Steering / agent.Mass); // adds the steerign vector to the currentVelocity
+    }
+
+    void avoid()
+    {
+        Displacement = Norm(gameObject.transform.position - Target.transform.position); //sets the Displacement from the Target's position to the Sphere's Position
+        Steering = SteeringMag * Vector3.ClampMagnitude(Displacement - Utilities.AVec3toUVec3(agent.Velocity), 1.0f).normalized; //Uses the Displacement and the current velocity to create a steering vector
+        agent.Velocity += Utilities.UVec3toAVec3(Steering / agent.Mass); // adds the steerign vector to the currentVelocity
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -38,8 +53,13 @@ public class seeking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Displacement = Norm(Target.transform.position - gameObject.transform.position); //sets the Displacement from the Target's position to the Sphere's Position
-        Steering = SteeringMag * Vector3.ClampMagnitude(Displacement - Utilities.AVec3toUVec3(agent.Velocity), 1.0f).normalized; //Uses the Displacement and the current velocity to create a steering vector
-        agent.Velocity += Utilities.UVec3toAVec3(Steering / agent.Mass); // adds the steerign vector to the currentVelocity
+        if (Behavior == true)
+        {
+            seek();
+        }
+        else
+        {
+            avoid();
+        }
     }
 }

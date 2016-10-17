@@ -22,8 +22,7 @@ public class Spawner : MonoBehaviour
                 int z = Random.Range(-100, -1);
                 Spawn = new Vector3(x, y, z);
                 GameObject temp = Instantiate(Boid, Spawn, Quaternion.identity) as GameObject;
-                MonoAgent ma = temp.GetComponent<MonoAgent>();
-                //ma.agent.Position = Utilities.UVec3toAVec3(Spawn);
+                
             }
             else if (i % 3 == 0)
             {
@@ -32,8 +31,7 @@ public class Spawner : MonoBehaviour
                 int z = Random.Range(100, 1);
                 Spawn = new Vector3(x, y, z);
                 GameObject temp = Instantiate(Boid, Spawn, Quaternion.identity) as GameObject;
-                MonoAgent ma = temp.GetComponent<MonoAgent>();
-                //ma.agent.Position = Utilities.UVec3toAVec3(Spawn);
+                
             }
             else if (i % 2 == 0)
             {
@@ -42,8 +40,7 @@ public class Spawner : MonoBehaviour
                 int z = Random.Range(-100, -1);
                 Spawn = new Vector3(x, y, z);
                 GameObject temp = Instantiate(Boid, Spawn, Quaternion.identity) as GameObject;
-                MonoAgent ma = temp.GetComponent<MonoAgent>();
-                //ma.agent.Position = Utilities.UVec3toAVec3(Spawn);
+                
             }
             else
             {
@@ -52,8 +49,7 @@ public class Spawner : MonoBehaviour
                 int z = Random.Range(1, 100);
                 Spawn = new Vector3(x, y, z);
                 GameObject temp = Instantiate(Boid, Spawn, Quaternion.identity) as GameObject;
-                MonoAgent ma = temp.GetComponent<MonoAgent>();
-               // ma.agent.Position = Utilities.UVec3toAVec3(Spawn);
+                
             }
             Boid.GetComponent<seeking>().Target = this.gameObject; //gives a reference of This GameObject
         }
