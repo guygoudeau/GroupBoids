@@ -3,17 +3,14 @@ using System.Collections;
 using System;
 using UnityEditor;
 
-public class Seeking : MonoBehaviour
+public class seeking : MonoBehaviour
 {
-    public GameObject Sphere;
     public GameObject Target;
-    public Vector3 currentVelocity;
     private Vector3 desiredVelocity;
     private Vector3 Displacement;
     private Vector3 Steering;
-    public float SteeringMag = 1.0f;
-    public float Mass = 10;
-
+    public float SteeringMag = 0.1f;
+    private Agent agent;
 
     public Vector3 Norm(Vector3 x) //Fuction to normalize a Vector.
     {
@@ -32,18 +29,17 @@ public class Seeking : MonoBehaviour
     }
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-        currentVelocity = Norm(Sphere.transform.position); // sets strating velocity  
+        agent = gameObject.GetComponent<MonoAgent>().agent;
+        agent.Velocity = Utilities.UVec3toAVec3(Norm(gameObject.transform.position)); // sets strating velocity  
     }
 
     // Update is called once per frame
-    void Update ()
-	{
-	    Displacement = Target.transform.position - Sphere.transform.position; //sets the Displacement from the Target's position to the Sphere's Position
-	    Steering = Vector3.ClampMagnitude((Displacement - currentVelocity),1.0f) / Mass; //Uses the Displacement and the current velocity to create a steering vector
-	    currentVelocity += Steering; // adds the steerign vector to the currentVelocity
-        Sphere.transform.position = Sphere.transform.position + currentVelocity; // changes the position of the shere based on the current velocity.
-
-	}
+    void Update()
+    {
+        Displacement = Norm(Target.transform.position - gameObject.transform.position); //sets the Displacement from the Target's position to the Sphere's Position
+        Steering = SteeringMag * Vector3.ClampMagnitude(Displacement - Utilities.AVec3toUVec3(agent.Velocity), 1.0f).normalized; //Uses the Displacement and the current velocity to create a steering vector
+        agent.Velocity += Utilities.UVec3toAVec3(Steering / agent.Mass); // adds the steerign vector to the currentVelocity
+    }
 }
