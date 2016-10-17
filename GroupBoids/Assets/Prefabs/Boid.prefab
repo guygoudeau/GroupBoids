@@ -21,8 +21,8 @@ GameObject:
   - 4: {fileID: 4000013792382986}
   - 33: {fileID: 33000012912828910}
   - 23: {fileID: 23000012171669170}
-  - 114: {fileID: 114000010834442086}
   - 114: {fileID: 114000012033230564}
+  - 114: {fileID: 114000010427121742}
   m_Layer: 0
   m_Name: Boid
   m_TagString: Untagged
@@ -79,7 +79,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011296084564}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114000010834442086
+--- !u!114 &114000010427121742
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -90,11 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d179da3567c3594aad34f96e967d00c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sphere: {fileID: 1000011296084564}
   Target: {fileID: 0}
-  currentVelocity: {x: 0, y: 0, z: 0}
-  SteeringMag: 1
-  Mass: 30
+  SteeringMag: 0.7
+  Behavior: 0
 --- !u!114 &114000012033230564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,4 +104,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8e58a9720548242b70512593d29df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monoAgent: {fileID: 1000011296084564}
