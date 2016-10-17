@@ -9,7 +9,7 @@ public class seeking : MonoBehaviour
     private Vector3 desiredVelocity;
     private Vector3 Displacement;
     private Vector3 Steering;
-    public float SteeringMag = 1.0f;
+    public float SteeringMag = 0.1f;
     private Agent agent;
 
     public Vector3 Norm(Vector3 x) //Fuction to normalize a Vector.
@@ -29,17 +29,17 @@ public class seeking : MonoBehaviour
     }
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         agent = gameObject.GetComponent<MonoAgent>().agent;
         agent.Velocity = Utilities.UVec3toAVec3(Norm(gameObject.transform.position)); // sets strating velocity  
     }
 
     // Update is called once per frame
-    void Update ()
-	{
-	    Displacement = Target.transform.position - gameObject.transform.position; //sets the Displacement from the Target's position to the Sphere's Position
-	    Steering = Vector3.ClampMagnitude((Displacement - Utilities.AVec3toUVec3(agent.Velocity)),1.0f) / agent.Mass; //Uses the Displacement and the current velocity to create a steering vector
-	    agent.Velocity += Utilities.UVec3toAVec3(Steering); // adds the steerign vector to the currentVelocity
-	}
+    void Update()
+    {
+        Displacement = Norm(Target.transform.position - gameObject.transform.position); //sets the Displacement from the Target's position to the Sphere's Position
+        Steering = SteeringMag * Vector3.ClampMagnitude(Displacement - Utilities.AVec3toUVec3(agent.Velocity), 1.0f).normalized; //Uses the Displacement and the current velocity to create a steering vector
+        agent.Velocity += Utilities.UVec3toAVec3(Steering / agent.Mass); // adds the steerign vector to the currentVelocity
+    }
 }
