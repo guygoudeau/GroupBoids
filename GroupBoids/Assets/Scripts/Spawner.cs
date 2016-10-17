@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
     public GameObject Target;
     public GameObject Boid;
     private Vector3 Spawn;
-    private int amount = 90;
+    private int amount = 10;
     public Vector3 targetPos;
 	// Use this for initialization
 	void Awake ()
