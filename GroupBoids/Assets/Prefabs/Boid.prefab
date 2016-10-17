@@ -22,7 +22,7 @@ GameObject:
   - 33: {fileID: 33000012912828910}
   - 23: {fileID: 23000012171669170}
   - 114: {fileID: 114000012033230564}
-  - 114: {fileID: 114000012013821820}
+  - 114: {fileID: 114000010427121742}
   m_Layer: 0
   m_Name: Boid
   m_TagString: Untagged
@@ -79,7 +79,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011296084564}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114000012013821820
+--- !u!114 &114000010427121742
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -91,7 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  SteeringMag: 1
+  SteeringMag: 0.7
+  Behavior: 0
 --- !u!114 &114000012033230564
 MonoBehaviour:
   m_ObjectHideFlags: 1
