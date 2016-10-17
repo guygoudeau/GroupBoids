@@ -11,6 +11,15 @@ public class Agent
             this.y = y;
             this.z = z;
         }
+
+        public static Vector3 operator+(Vector3 a, Vector3 b)
+        {
+            Vector3 result;
+            result.x = a.x + b.x;
+            result.y = a.y + b.y;
+            result.z = a.z + b.z;
+            return result;
+        }
     }
     public Vector3 Norm(Vector3 x) //Fuction to normalize a Vector.
     {
@@ -30,4 +39,19 @@ public class Agent
     public Vector3 Position = new Vector3(0,0,0); //starting position for the agent
     public Vector3 Velocity = new Vector3(0,0,1); //starting velocity for the agent
     public float Mass = 10.0f; //starting mass for the agent
+
+    public void UpdateVelocity()
+    {
+        Position.x += Velocity.x;
+        Position.y += Velocity.y;
+        Position.z += Velocity.z;
+    }
+
+    public Agent()
+    {
+        Mass = 10.0f;
+        Position = new Vector3(0, 0, 0);
+        Velocity = new Vector3(0, 0, 1);
+
+    }
 }
