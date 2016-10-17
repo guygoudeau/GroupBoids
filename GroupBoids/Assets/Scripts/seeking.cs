@@ -9,9 +9,11 @@ public class seeking : MonoBehaviour
     private Vector3 desiredVelocity;
     private Vector3 Displacement;
     private Vector3 Steering;
-    public float SteeringMag = 0.1f;
+    public float SteeringMag = 0.2f;
     private Agent agent;
     public bool Behavior = true;
+    public float resetTime = 1.0f;
+    public float currenttime;
 
     public Vector3 Norm(Vector3 x) //Fuction to normalize a Vector.
     {
@@ -43,6 +45,21 @@ public class seeking : MonoBehaviour
         agent.Velocity += Utilities.UVec3toAVec3(Steering / agent.Mass); // adds the steerign vector to the currentVelocity
     }
 
+    void reset()
+    {
+        currenttime = resetTime;
+        Behavior = false;
+        
+
+    }
+    void OnTriggerEnter(Collider enemy) //A function that is called when the enters a rigidbody.
+    {
+        if (enemy.gameObject.GetComponent<Spawner>() != null)  //Checks to see if the Owner's barrel is a chainsaw.
+        {
+            reset();
+        }
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -53,6 +70,11 @@ public class seeking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currenttime <= 0)
+            {
+                Behavior = true;
+                currenttime = resetTime;
+            }
         if (Behavior == true)
         {
             seek();
@@ -60,6 +82,8 @@ public class seeking : MonoBehaviour
         else
         {
             avoid();
+            currenttime = currenttime - Time.deltaTime;
+
         }
     }
 }
