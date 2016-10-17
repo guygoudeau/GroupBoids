@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7d179da3567c3594aad34f96e967d00c
+timeCreated: 1476304532
+licenseType: Pro
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - Sphere: {fileID: 1000011296084564, guid: 2b8499e6f14bd2a48a553fc68b06c642, type: 2}
+  - Target: {fileID: 1000010046332970, guid: 2d9421e5071b9df42a444bd5950d5f5b, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
