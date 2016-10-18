@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BossBehavior : MonoBehaviour {
 
+    public int Health = 100;
     public GameObject Target;   //Target Transform
     public Vector3 TargetPos;
     public Vector3 cV;              //Current Velocity
@@ -32,17 +33,27 @@ public class BossBehavior : MonoBehaviour {
             cV = cV.normalized;
         cV += steering;
         transform.position = transform.position + (cV / mass) * speed;
-        //transform.position = new Vector3(transform.position.x, 1, transform.position.x);
+        transform.forward = cV;
+        //transform.position = new Vector3(transform.position.x, 5, transform.position.x);
 
         TargetPos = Target.transform.position;
 	}
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.name == "Boid(Clone)")
             Destroy(other.gameObject);
         else if (other.gameObject.name == "Wall")
+        {
+            cV = new Vector3(0, 0, 0);
             sM = 0;
+        }
+    }
+
+    void OnTriggerExit()
+    {
+        cV = transform.position.normalized;
+        sM = 1;
     }
 
 }
