@@ -19,9 +19,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012934589528}
-  - 33: {fileID: 33000011127615300}
-  - 23: {fileID: 23000010390065362}
   - 114: {fileID: 114000013281656292}
+  - 114: {fileID: 114000011619935500}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -36,48 +35,36 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010046332970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &23000010390065362
-MeshRenderer:
+--- !u!114 &114000011619935500
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010046332970}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedWireframeHidden: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &33000011127615300
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010046332970}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c74e56a558bca42b9d2c7533e1276d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textures:
+  - {fileID: 2800000, guid: f9397411ffda5744f80e162b8cc573b1, type: 3}
+  - {fileID: 2800000, guid: 7abe0a91623c4d14ab85304922175fc3, type: 3}
+  - {fileID: 2800000, guid: 4bf47b342447cdc4b96e40da7658552f, type: 3}
+  - {fileID: 2800000, guid: 683b12edf9bf34c498be2f78a628d85d, type: 3}
+  - {fileID: 2800000, guid: 7ccf8f8ffdb439440aea156c4441da73, type: 3}
+  - {fileID: 2800000, guid: 5ac3b970a46ac04428f524a66c5a8c5b, type: 3}
+  - {fileID: 2800000, guid: e90e0d93e6ca6164fbf9250f71410c02, type: 3}
+  - {fileID: 2800000, guid: 99e17495e0a05cf45b0c74d6dced3c1d, type: 3}
+  - {fileID: 2800000, guid: e8dc379667d90b94bbecd0c41b95f847, type: 3}
+  - {fileID: 2800000, guid: 8f7c98d68a77de443a837591ff9a06dd, type: 3}
+  - {fileID: 2800000, guid: ac98b0dc8534a004db7b3d91bea1bfef, type: 3}
+  - {fileID: 2800000, guid: b6a45d7eb9e36c341afc1111c658364b, type: 3}
 --- !u!114 &114000013281656292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,6 +76,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d430141a82d7d44b141dbcccff0af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 1000010046332970}
+  Target: {fileID: 0}
   Boid: {fileID: 1000011296084564, guid: 2b8499e6f14bd2a48a553fc68b06c642, type: 2}
-  targetPos: {x: 0, y: 0, z: 0}
+  spawnLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  minSpawnDistance: 50
+  waitTime: 2
+  boidNumber: 3
