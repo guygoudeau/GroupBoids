@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public GameObject Target;
     public GameObject Boid;
+    public GameObject boss;
     private Vector3 Spawn;
     public List<Transform> spawnLocations;
     public float minSpawnDistance;
@@ -34,6 +35,10 @@ public class Spawner : MonoBehaviour
         {
             StopCoroutine(corutine);
             corRunning = false;
+            if(FindObjectOfType<BossBehavior>() == null)
+            {
+                Instantiate(boss, Vector3.zero, Quaternion.identity);
+            }
         }
 
         else if (corRunning == false && boidCounter < boidNumber)
