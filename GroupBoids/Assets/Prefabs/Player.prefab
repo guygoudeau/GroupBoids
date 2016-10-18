@@ -40,7 +40,7 @@ GameObject:
   - 65: {fileID: 65000012446223886}
   - 114: {fileID: 114000010869857842}
   - 54: {fileID: 54000013951788352}
-  - 114: {fileID: 114000013097542126}
+  - 114: {fileID: 114000013948721992}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -246,18 +246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
---- !u!114 &114000013097542126
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013274492946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e28386a0196f44b8c4556f00fa0233, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1000014135556948}
 --- !u!114 &114000013439703746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -270,3 +258,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
+--- !u!114 &114000013948721992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013274492946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afc1a0ecef4a0f49a700bdf478e90e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1000014135556948}
