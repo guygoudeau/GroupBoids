@@ -21,7 +21,7 @@ public class MonoAgent : MonoBehaviour
 	void LateUpdate () {
 	
         agent.UpdateVelocity();
-	    transform.position = Utilities.AVec3toUVec3(agent.Position);
+	    transform.position = new Vector3(agent.Position.x, transform.position.y, agent.Position.z);
 
 	}
 }
