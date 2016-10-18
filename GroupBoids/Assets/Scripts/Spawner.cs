@@ -12,6 +12,8 @@ public class Spawner : MonoBehaviour
     public float waitTime;
     public int boidNumber;
 
+    public List<Texture> textures;
+
     private int boidCounter = 0;
 
     private IEnumerator corutine;
@@ -46,6 +48,7 @@ public class Spawner : MonoBehaviour
         GameObject a = (Instantiate(Boid, spawnLocations[index].position, Quaternion.identity) as GameObject);
         a.GetComponent<MonoAgent>().agent.Position = Utilities.UVec3toAVec3(spawnLocations[index].position);
         a.GetComponent<seeking>().Target = Target; //gives a reference of This GameObject
+        Utilities.SetTexture(a.GetComponent<MonoAgent>(), textures);
         boidCounter++;
     }
 
