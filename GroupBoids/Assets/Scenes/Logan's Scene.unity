@@ -187,8 +187,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 1242335418}
   Boid: {fileID: 578126962}
-  amount: 10
-  targetPos: {x: 0, y: 0, z: 0}
+  spawnLocations: []
+  minSpawnDistance: 0
+  waitTime: 0
+  boidNumber: 0
 --- !u!1 &578126962 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000011296084564, guid: 2b8499e6f14bd2a48a553fc68b06c642,
@@ -478,7 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3d25367df00f04283b0b9457837e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 10
   Boids: []
   Target: {fileID: 549344741}
   TargetPos: {x: 0, y: 0, z: 0}
