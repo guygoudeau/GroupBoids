@@ -25,7 +25,7 @@ static class Utilities{
         Agent.Vector3 upos;
         upos.x = -1 * apos.x;
         upos.y = apos.y;
-        upos.z = -1 *apos.z;
+        upos.z = -1 * apos.z;
         return upos;
     }
 }
