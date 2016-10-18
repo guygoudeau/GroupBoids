@@ -33,14 +33,16 @@ public class seeking : MonoBehaviour
 
     void seek()
     {
-        Displacement = Norm(Target.transform.position - gameObject.transform.position); //sets the Displacement from the Target's position to the Sphere's Position
+        Displacement =  Norm(Target.transform.position - gameObject.transform.position); //sets the Displacement from the Target's position to the Sphere's Position
         Steering = SteeringMag * Vector3.ClampMagnitude(Displacement - Utilities.AVec3toUVec3(agent.Velocity), 1.0f).normalized; //Uses the Displacement and the current velocity to create a steering vector
         agent.Velocity += Utilities.UVec3toAVec3(Steering / agent.Mass); // adds the steerign vector to the currentVelocity
     }
 
     void avoid()
     {
-        Displacement = Norm(gameObject.transform.position - Target.transform.position); //sets the Displacement from the Target's position to the Sphere's Position
+        
+         // inverts velocity
+        Displacement = (gameObject.transform.position - Target.transform.position); //sets the Displacement from the Target's position to the Sphere's Position
         Steering = SteeringMag * Vector3.ClampMagnitude(Displacement - Utilities.AVec3toUVec3(agent.Velocity), 1.0f).normalized; //Uses the Displacement and the current velocity to create a steering vector
         agent.Velocity += Utilities.UVec3toAVec3(Steering / agent.Mass); // adds the steerign vector to the currentVelocity
     }
@@ -54,9 +56,15 @@ public class seeking : MonoBehaviour
     }
     void OnTriggerEnter(Collider enemy) //A function that is called when the enters a rigidbody.
     {
-        if (enemy.gameObject.GetComponent<Spawner>() != null)  //Checks to see if the Owner's barrel is a chainsaw.
+        if (enemy.gameObject.name == "Wall")  //Checks to see if the Owner's barrel is a chainsaw.
+            {
+                agent.Velocity = Utilities.Invert(Norm(Target.transform.position));
+            }
+        if (enemy.gameObject.GetComponent<PlayerInputManager>() != null)  //Checks to see if the Owner's barrel is a chainsaw.
         {
+            
             reset();
+            
         }
     }
 
