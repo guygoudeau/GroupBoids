@@ -15,19 +15,29 @@ public class Spawner : MonoBehaviour
     private int boidCounter = 0;
 
     private IEnumerator corutine;
+    private bool corRunning;
 
 	// Use this for initialization
 	void Awake ()
     {
         corutine = WaitAndCreate(waitTime);
         StartCoroutine(corutine);
+        corRunning = true;
     }
 
     void Update()
     {
-        if(boidCounter >= boidNumber)
+        boidCounter = CountBoids();
+        if (boidCounter >= boidNumber && corRunning == true)
         {
             StopCoroutine(corutine);
+            corRunning = false;
+        }
+
+        else if (corRunning == false && boidCounter < boidNumber)
+        {
+            StartCoroutine(corutine);
+            corRunning = true;
         }
     }
 
@@ -53,6 +63,16 @@ public class Spawner : MonoBehaviour
             }
         }
         return finalIndex;
+    }
+
+    int CountBoids()
+    {
+        int count = 0;
+        foreach(MonoAgent ma in FindObjectsOfType<MonoAgent>())
+        {
+            count++;
+        }
+        return count;
     }
 
     private IEnumerator WaitAndCreate(float waitTime)
