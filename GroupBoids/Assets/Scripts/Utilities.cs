@@ -20,4 +20,12 @@ static class Utilities{
         upos.z = apos.z;
         return upos;
     }
+    public static Agent.Vector3 Invert(Vector3 apos)
+    {
+        Agent.Vector3 upos;
+        upos.x = -1 * apos.x;
+        upos.y = apos.y;
+        upos.z = -1 *apos.z;
+        return upos;
+    }
 }
