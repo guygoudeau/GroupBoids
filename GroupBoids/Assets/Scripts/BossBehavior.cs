@@ -33,22 +33,29 @@ public class BossBehavior : MonoBehaviour {
         deltaTime = currentTime - previousTime;
         if (deltaTime >= Timer)
         {
+            //Needs player health to complete if (Target.GetComponent<PlayerInputManager>(). > 0)
             int i = Random.Range(0, 9);
             if (Boids[i].GetComponent<seeking>().Target != Target)
+            {
                 Boids[i].GetComponent<seeking>().Target = Target;
+            }
         }
 
         Vector3 dV = Target.transform.position - transform.position;                 //Desired Vector
         Vector3 seeking = (dV.normalized - cV.normalized) * sM;
         Vector3 avoid = (transform.position - Target.transform.position) * avM;
         if (dV.magnitude <= radius)
+        {
             ArrStr = dV.magnitude / radius;
+        }
         else
             ArrStr = 0;
         Vector3 arrival = (transform.position - Target.transform.position) * ArrStr;
         Vector3 steering = seeking + avoid + arrival;
         if (cV.magnitude > 5)
+        {
             cV = cV.normalized;
+        }
         cV += steering;
         transform.position = transform.position + (cV / mass) * speed;
         transform.forward = cV;
@@ -60,21 +67,26 @@ public class BossBehavior : MonoBehaviour {
     {
         List<GameObject> Update = new List<GameObject>();
         foreach (GameObject gO in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+        {
             if (gO.name == "Boid(Clone)")
+            {
                 Update.Add(gO);
+            }
+        }
         return Update;
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Boid(Clone)")
+        {
             if (other.gameObject.GetComponent<seeking>().Behavior == false)
             {
                 Health--;
                 Destroy(other.gameObject);
                 Debug.Log("Boss Hit");
             }
-
+        }
         else if (other.gameObject.name == "Wall")
         {
             cV = new Vector3(0, 0, 0);
@@ -83,7 +95,7 @@ public class BossBehavior : MonoBehaviour {
 
         else if (other.gameObject.name == "Player")
         {
-                Destroy(other.gameObject);
+            //Health Decrement
         }
     }
 
