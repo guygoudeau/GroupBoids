@@ -48,7 +48,7 @@ public class Spawner : MonoBehaviour
                 Spawn = new Vector3(x, y, z);
                 temp = Instantiate(Boid, Spawn, Quaternion.identity) as GameObject;          
             }
-            Boid.GetComponent<seeking>().Target = this.gameObject; //gives a reference of This GameObject
+            Boid.GetComponent<seeking>().Target = Target; //gives a reference of This GameObject
         }
 
 	}
