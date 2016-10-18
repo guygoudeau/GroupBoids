@@ -1,55 +1,67 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
-using System.Security.Cryptography;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject Target;
     public GameObject Boid;
     private Vector3 Spawn;
-    public int amount = 10;
-    public Vector3 targetPos;
+    public List<Transform> spawnLocations;
+    public float minSpawnDistance;
+    public float waitTime;
+    public int boidNumber;
+
+    private int boidCounter = 0;
+
+    private IEnumerator corutine;
+
 	// Use this for initialization
 	void Awake ()
-    { 
-        //this loop creates random starting positions for the boids
-        for (int i = 0; i <= amount; ++i)
-	    {
-            GameObject temp;
-            if (i % 4 == 0)
-            {
-                float x = Random.Range(100, 1);
-                float y = transform.position.y;
-                float z = Random.Range(-100, -1);
-                Spawn = new Vector3(x, y, z);
-                temp = Instantiate(Boid, Spawn, Quaternion.identity) as GameObject;             
-            }
-            else if (i % 3 == 0)
-            {
-                float x = Random.Range(-100, -1);
-                float y = transform.position.y;
-                float z = Random.Range(100, 1);
-                Spawn = new Vector3(x, y, z);
-                temp = Instantiate(Boid, Spawn, Quaternion.identity) as GameObject;            
-            }
-            else if (i % 2 == 0)
-            {
-                float x = Random.Range(-100, -1);
-                float y = transform.position.y;
-                float z = Random.Range(-100, -1);
-                Spawn = new Vector3(x, y, z);
-                temp = Instantiate(Boid, Spawn, Quaternion.identity) as GameObject;
-            }
-            else
-            {
-                float x = Random.Range(1, 100);
-                float y = transform.position.y;
-                float z = Random.Range(1, 100);
-                Spawn = new Vector3(x, y, z);
-                temp = Instantiate(Boid, Spawn, Quaternion.identity) as GameObject;          
-            }
-            Boid.GetComponent<seeking>().Target = Target; //gives a reference of This GameObject
-        }
+    {
+        corutine = WaitAndCreate(waitTime);
+        StartCoroutine(corutine);
+    }
 
-	}
+    void Update()
+    {
+        if(boidCounter >= boidNumber)
+        {
+            StopCoroutine(corutine);
+        }
+    }
+
+    void CreateAgent(int index)
+    {
+        Agent a = (Instantiate(Boid, spawnLocations[index].position, Quaternion.identity) as GameObject).GetComponent<MonoAgent>().agent;
+        a.Position = Utilities.UVec3toAVec3(spawnLocations[index].position);
+        Boid.GetComponent<seeking>().Target = Target; //gives a reference of This GameObject
+        boidCounter++;
+    }
+
+    int CheckDistance()
+    {
+        Transform playerTrans = GameObject.Find("Player").transform;    //Get Player
+        int finalIndex;     //The final product
+        while (true)
+        {
+            finalIndex = Random.Range(0, spawnLocations.Count);
+
+            if((spawnLocations[finalIndex].position - playerTrans.position).magnitude > minSpawnDistance)
+            {               
+                break;
+            }
+        }
+        return finalIndex;
+    }
+
+    private IEnumerator WaitAndCreate(float waitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            int index = CheckDistance();
+            CreateAgent(index);
+        }     
+    }
 }
