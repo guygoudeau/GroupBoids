@@ -14,6 +14,7 @@ public class seeking : MonoBehaviour
     public bool Behavior = true;
     public float resetTime = 1.0f;
     public float currenttime;
+    private AudioSource hitSource;
 
     public Vector3 Norm(Vector3 x) //Fuction to normalize a Vector.
     {
@@ -58,9 +59,9 @@ public class seeking : MonoBehaviour
     {
         if (enemy.gameObject.name == "Wall")  //Checks to see if the Owner's barrel is a chainsaw.
             {
-                //agent.Velocity = Utilities.Invert(Norm(gameObject.transform.position));
+                hitSource.Play();
                 float mag = Utilities.AVec3toUVec3(agent.Velocity).magnitude;
-                agent.Velocity = Utilities.UVec3toAVec3((transform.position - Target.transform.position).normalized * mag);
+                agent.Velocity = Utilities.UVec3toAVec3((transform.position - Target.transform.position).normalized * mag * 1.1f);
             }
         if (enemy.gameObject.GetComponent<PlayerInputManager>() != null)  //Checks to see if the Owner's barrel is a chainsaw.
         {
@@ -73,6 +74,7 @@ public class seeking : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        hitSource = gameObject.GetComponent<AudioSource>();
         agent = gameObject.GetComponent<MonoAgent>().agent;
         agent.Velocity = Utilities.UVec3toAVec3(Norm(gameObject.transform.position)); // sets strating velocity  
     }
