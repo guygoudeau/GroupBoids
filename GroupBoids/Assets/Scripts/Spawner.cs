@@ -33,9 +33,9 @@ public class Spawner : MonoBehaviour
 
     void CreateAgent(int index)
     {
-        Agent a = (Instantiate(Boid, spawnLocations[index].position, Quaternion.identity) as GameObject).GetComponent<MonoAgent>().agent;
-        a.Position = Utilities.UVec3toAVec3(spawnLocations[index].position);
-        Boid.GetComponent<seeking>().Target = Target; //gives a reference of This GameObject
+        GameObject a = (Instantiate(Boid, spawnLocations[index].position, Quaternion.identity) as GameObject);
+        a.GetComponent<MonoAgent>().agent.Position = Utilities.UVec3toAVec3(spawnLocations[index].position);
+        a.GetComponent<seeking>().Target = Target; //gives a reference of This GameObject
         boidCounter++;
     }
 
