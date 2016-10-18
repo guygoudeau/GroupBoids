@@ -31,12 +31,11 @@ public class BossBehavior : MonoBehaviour {
 
         currentTime = Time.time;
         deltaTime = currentTime - previousTime;
-        if(deltaTime >= Timer)
+        if (deltaTime >= Timer)
         {
-        ShootBoid:
             int i = Random.Range(0, 9);
-            if(Boids[i].GetComponent<seeking>().Target != Target)
-
+            if (Boids[i].GetComponent<seeking>().Target != Target)
+                Boids[i].GetComponent<seeking>().Target = Target;
         }
 
         Vector3 dV = Target.transform.position - transform.position;                 //Desired Vector
