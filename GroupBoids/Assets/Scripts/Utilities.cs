@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 static class Utilities{
 
@@ -27,5 +27,11 @@ static class Utilities{
         upos.y = apos.y;
         upos.z = -1 * apos.z;
         return upos;
+    }
+
+    static public void SetTexture(MonoAgent ma, List<Texture> textures)
+    {
+        int index = Random.Range(0, textures.Count - 1);
+        ma.gameObject.GetComponent<MeshRenderer>().material.mainTexture = textures[index];
     }
 }
