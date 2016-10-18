@@ -187,6 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 549344741}
   Boid: {fileID: 578126962}
+  amount: 10
   targetPos: {x: 0, y: 0, z: 0}
 --- !u!1 &578126962 stripped
 GameObject:
@@ -284,6 +285,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 23000010764984636, guid: 0a0cd036d9ad24747bba055a61172d39,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44c5b4940659407499c87d6fb9c0ea3b, type: 2}
+    - target: {fileID: 23000010777324930, guid: 0a0cd036d9ad24747bba055a61172d39,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44c5b4940659407499c87d6fb9c0ea3b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a0cd036d9ad24747bba055a61172d39, type: 2}
   m_IsPrefabParent: 0
@@ -450,8 +461,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1242335418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -16.21}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 5, z: -16.21}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -467,13 +478,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3d25367df00f04283b0b9457837e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 100
   Target: {fileID: 549344741}
   TargetPos: {x: 0, y: 0, z: 0}
   cV: {x: 0, y: 0, z: 0}
   sM: 1
   avM: 0
   mass: 10
-  speed: 1
+  speed: 0.5
   radius: 1
   ArrStr: 0
   aM: 0
