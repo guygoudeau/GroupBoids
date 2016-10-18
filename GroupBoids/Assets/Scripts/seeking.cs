@@ -58,7 +58,9 @@ public class seeking : MonoBehaviour
     {
         if (enemy.gameObject.name == "Wall")  //Checks to see if the Owner's barrel is a chainsaw.
             {
-                agent.Velocity = Utilities.Invert(Norm(Target.transform.position));
+                //agent.Velocity = Utilities.Invert(Norm(gameObject.transform.position));
+                float mag = Utilities.AVec3toUVec3(agent.Velocity).magnitude;
+                agent.Velocity = Utilities.UVec3toAVec3((transform.position - Target.transform.position).normalized * mag);
             }
         if (enemy.gameObject.GetComponent<PlayerInputManager>() != null)  //Checks to see if the Owner's barrel is a chainsaw.
         {
