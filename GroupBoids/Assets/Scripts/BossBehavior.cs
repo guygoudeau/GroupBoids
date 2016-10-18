@@ -13,10 +13,13 @@ public class BossBehavior : MonoBehaviour {
                     ArrStr = 0,     //Arrival Strength
                     aM = 0;         //Arrival Magnitude
 
-    public float    currentTime = 0,
+    public float           currentTime = 0,
                     previousTime = 0,
+                    previousTime2 = 0,
                     deltaTime = 0,
-                    Timer = 0;
+                    deltaTime2 = 0;
+
+    public float    Timer = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -43,7 +46,7 @@ public class BossBehavior : MonoBehaviour {
             {
                 if (Boids.Count != 0)
                 {
-                    int i = Random.Range(0, Boids.Count);
+                    int i = Random.Range(0, Boids.Count - 1);
                     if (Boids[i].GetComponent<seeking>().Target != Target)
                     {
                         Boids[i].GetComponent<seeking>().Target = Target;
@@ -52,6 +55,25 @@ public class BossBehavior : MonoBehaviour {
             }
             deltaTime = 0;
             previousTime = currentTime;
+        }
+
+        deltaTime2 = currentTime - previousTime2;
+
+        if (deltaTime2 >= Timer)
+        {
+            if (Boids.Count != 0)
+            {
+                foreach(GameObject boid in Boids)
+                {
+                    if(boid.GetComponent<seeking>().Target == Target)
+                    {
+                        boid.GetComponent<seeking>().Target = this.gameObject;
+                        break;
+                    }
+                }
+            }
+            deltaTime2 = 0;
+            previousTime2 = currentTime;
         }
 
         Vector3 dV = Target.transform.position - transform.position;                 //Desired Vector
