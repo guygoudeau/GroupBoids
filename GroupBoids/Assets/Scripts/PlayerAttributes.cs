@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerAttributes : MonoBehaviour {
 
     public int health;
+    public string gameOverScene;
 	
 	// Update is called once per frame
 	void Update () {
         if (health <= 0)
         {
-            ///Game Over code
+            SceneManager.LoadScene(gameOverScene);
         }
 	}
 

@@ -121,7 +121,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fa107817c8e406b45bf3272addd876e6, type: 2}
+  - {fileID: 2100000, guid: 44c5b4940659407499c87d6fb9c0ea3b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -150,7 +150,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e9192560a0c7a3143a245d0e3e87fbd0, type: 2}
+  - {fileID: 2100000, guid: 44c5b4940659407499c87d6fb9c0ea3b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  gameOverScene: 
 --- !u!114 &114000013439703746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,6 +259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
+  zPositionLock: 50
+  xPositionLock: 50
 --- !u!114 &114000013948721992
 MonoBehaviour:
   m_ObjectHideFlags: 1
