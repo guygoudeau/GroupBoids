@@ -50,7 +50,7 @@ public class Spawner : MonoBehaviour
 
     void CreateAgent(int index)
     {
-        GameObject a = (Instantiate(Boid, spawnLocations[index].position, Quaternion.identity) as GameObject);
+        GameObject a = Instantiate(Boid, spawnLocations[index].position, Quaternion.identity) as GameObject;
         a.GetComponent<MonoAgent>().agent.Position = Utilities.UVec3toAVec3(spawnLocations[index].position);
         a.GetComponent<seeking>().Target = Target; //gives a reference of This GameObject
         Utilities.SetTexture(a.GetComponent<MonoAgent>(), textures);
