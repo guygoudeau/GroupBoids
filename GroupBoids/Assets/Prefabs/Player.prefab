@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  gameOverScene: GameOver
 --- !u!114 &114000013439703746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,6 +259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
+  zPositionLock: 50
+  xPositionLock: 50
 --- !u!114 &114000013948721992
 MonoBehaviour:
   m_ObjectHideFlags: 1
