@@ -21,8 +21,11 @@ public class BossBehavior : MonoBehaviour {
 
     public float    Timer = 0;
 
+    AudioSource hitSource;
+
 	// Use this for initialization
 	void Start () {
+        hitSource = gameObject.GetComponent<AudioSource>();
         cV = transform.position.normalized;
         Boids = UpdateBoidsList();
         foreach (GameObject boid in Boids)
@@ -128,11 +131,15 @@ public class BossBehavior : MonoBehaviour {
         {
             if (other.gameObject.GetComponent<seeking>().Target.name == "Player")
             {
-                if (other.gameObject.GetComponent<seeking>().PreviousTarget.name == "Boss")
+                if (other.gameObject.GetComponent<seeking>().PreviousTarget.name == "Boss(Clone)")
                 {
                     if(other.gameObject.GetComponent<seeking>().Behavior == false)
-                    Health--;
-                    Destroy(other.gameObject);
+                    {
+                        Health--;
+                        hitSource.Play();
+                        Destroy(other.gameObject);
+                    }
+                    
                 }
             }
         }

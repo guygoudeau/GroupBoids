@@ -42,6 +42,7 @@ public class Spawner : MonoBehaviour
                 if (FindObjectOfType<BossBehavior>() == null)
                 {
                     Instantiate(boss, Vector3.zero, Quaternion.identity);
+                    FindObjectOfType<BossBehavior>().Target = Target;
                 }
             }
 
