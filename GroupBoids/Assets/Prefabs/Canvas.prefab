@@ -1054,6 +1054,7 @@ GameObject:
   - 222: {fileID: 222000011669665486}
   - 114: {fileID: 114000011257644542}
   - 114: {fileID: 114000010586589108}
+  - 114: {fileID: 114000014121561842}
   m_Layer: 5
   m_Name: Boids Counter
   m_TagString: Untagged
@@ -1111,7 +1112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e9eff1cc3cad24dbd77467b7bd6d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerLabel: {fileID: 0}
+  timerLabel: {fileID: 114000012484039692}
 --- !u!114 &114000011257644542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1196,6 +1197,18 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!114 &114000014121561842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011868353900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc2f7d2fb57b3140af55a11f622425c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counter: {fileID: 114000011257644542}
 --- !u!222 &222000011669665486
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -1223,7 +1236,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 235}
+  m_AnchoredPosition: {x: 0, y: 389.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &224000013452581038
