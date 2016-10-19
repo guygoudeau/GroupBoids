@@ -247,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   gameOverScene: GameOver
+  healthSlider: {fileID: 0}
 --- !u!114 &114000013439703746
 MonoBehaviour:
   m_ObjectHideFlags: 1
