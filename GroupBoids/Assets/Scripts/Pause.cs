@@ -37,18 +37,12 @@ public class Pause : MonoBehaviour
                 Time.timeScale = 0; // set timescale to 0
                 pauseMenu.gameObject.SetActive(true); // turn on the pause canvas
                 playerUI.gameObject.SetActive(false); // turn off the player's UI
-
-                Cursor.lockState = CursorLockMode.None; // unlock the mouse cursor from the screen
-                Cursor.visible = true; // set cursor to be visible
             }
             else // otherwise, if timescale was 0, this resumes game
             {
                 Time.timeScale = 1; // set timescale to 1
                 pauseMenu.gameObject.SetActive(false); // turn the pause canvas off
                 playerUI.gameObject.SetActive(true); // turn the player's UI back on
-
-                Cursor.lockState = CursorLockMode.Locked; // lock the cursor to the screen
-                Cursor.visible = false; // hide the cursor
             }
         }
     }
