@@ -58,7 +58,7 @@ public class seeking : MonoBehaviour
     {
         if (enemy.gameObject.name == "Wall")  //Checks to see if the Owner's barrel is a chainsaw.
         {
-            if (Target.name == "Player" && PreviousTarget.name == "Boss")
+            if (Target.name == "Player" && PreviousTarget.name == "Boss(Clone)")
             {
                 reset();
             }
@@ -91,7 +91,7 @@ public class seeking : MonoBehaviour
                 Behavior = true;
                 currenttime = resetTime;
             }
-        if(Target.name == "Player" && PreviousTarget.name == "Boss" && Behavior == false)
+        if(Target.name == "Player" && PreviousTarget.name == "Boss(Clone)" && Behavior == false)
         {
             currenttime = currenttime - Time.deltaTime;
         }
