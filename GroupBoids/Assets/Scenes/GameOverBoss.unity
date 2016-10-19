@@ -554,7 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c47dfbf2b1ce04f8c86c76cd622e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: Arena
+  level: BossScene
 --- !u!114 &722149981
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -38,6 +38,11 @@ public class BossBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(Health <= 0)
+        {
+            Utilities.LoadScene("Win");
+        }
+
         Boids.Clear();
         Boids = UpdateBoidsList();
 
