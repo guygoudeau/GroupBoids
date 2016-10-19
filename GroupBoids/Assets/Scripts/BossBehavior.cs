@@ -28,6 +28,7 @@ public class BossBehavior : MonoBehaviour {
         foreach (GameObject boid in Boids)
         {
             boid.GetComponent<seeking>().Target = this.gameObject;
+            boid.GetComponent<seeking>().PreviousTarget = Target;
         }
         FindObjectOfType<Spawner>().Target = this.gameObject;
     }
@@ -50,6 +51,7 @@ public class BossBehavior : MonoBehaviour {
                     if (Boids[i].GetComponent<seeking>().Target != Target)
                     {
                         Boids[i].GetComponent<seeking>().Target = Target;
+                        Boids[i].GetComponent<seeking>().PreviousTarget = this.gameObject;
                     }
                 }
             }
@@ -124,11 +126,16 @@ public class BossBehavior : MonoBehaviour {
     {
         if (other.gameObject.name == "Boid(Clone)")
         {
-            if (other.gameObject.GetComponent<seeking>().Behavior == false)
+            if (other.gameObject.GetComponent<seeking>().Target.name == "Player")
             {
-                Health--;
-                Destroy(other.gameObject);
-                Debug.Log("Boss Hit");
+                
+                if (other.gameObject.GetComponent<seeking>().PreviousTarget.name == "Boss")
+                {
+                    if(other.gameObject.GetComponent<seeking>().Behavior == false)
+                    Health--;
+                    Destroy(other.gameObject);
+                    Debug.Log("Boss Hit");
+                }
             }
         }
         else if (other.gameObject.name == "Wall")
