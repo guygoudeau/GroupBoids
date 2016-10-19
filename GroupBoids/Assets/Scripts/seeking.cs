@@ -60,13 +60,13 @@ public class seeking : MonoBehaviour
         {
             if (Target.name == "Player" && PreviousTarget.name == "Boss")
             {
-                Debug.Log("Can hit the Boss");
                 reset();
             }
             
             hitSource.Play();
             float mag = Utilities.AVec3toUVec3(agent.Velocity).magnitude;
-            agent.Velocity = Utilities.UVec3toAVec3((transform.position - Target.transform.position).normalized * mag * 1.1f);
+            float dot = Vector3.Dot(Utilities.AVec3toUVec3(agent.Velocity).normalized, Target.transform.forward);
+            agent.Velocity = Utilities.UVec3toAVec3((transform.forward) - (2 * dot) * Target.transform.forward);
         }
         if (enemy.gameObject.GetComponent<PlayerInputManager>() != null)  //Checks to see if the Owner's barrel is a chainsaw.
         {
