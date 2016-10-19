@@ -16,5 +16,5 @@ public class UIBoidCounter : MonoBehaviour {
 	void Update ()
     {
         counter.text = "Boids: " + spawner.boidCounter.ToString();
-	}
+    }
 }
