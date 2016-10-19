@@ -128,13 +128,11 @@ public class BossBehavior : MonoBehaviour {
         {
             if (other.gameObject.GetComponent<seeking>().Target.name == "Player")
             {
-                
                 if (other.gameObject.GetComponent<seeking>().PreviousTarget.name == "Boss")
                 {
                     if(other.gameObject.GetComponent<seeking>().Behavior == false)
                     Health--;
                     Destroy(other.gameObject);
-                    Debug.Log("Boss Hit");
                 }
             }
         }
