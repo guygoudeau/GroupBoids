@@ -5,8 +5,11 @@ public class PlayerInputManager : MonoBehaviour {
 
     public float speed;
 
-	// Update is called once per frame
-	void Update () {
+    public float zPositionLock;
+    public float xPositionLock;
+
+    // Update is called once per frame
+    void Update () {
         //Rotation
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    //Ray
         RaycastHit hit = new RaycastHit();                              //Raycast hit that stores the Info of what it hit
@@ -16,22 +19,22 @@ public class PlayerInputManager : MonoBehaviour {
 
         //movement
         Vector3 direction = Vector3.zero;
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && transform.position.z < zPositionLock)
         {
             direction += new Vector3(0,0,1);
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && transform.position.z > -zPositionLock)
         {
             direction += new Vector3(0, 0, -1);
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && transform.position.x < xPositionLock)
         {
             direction += new Vector3(1, 0, 0);
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && transform.position.x > -xPositionLock)
         {
             direction += new Vector3(-1, 0, 0);
         }
