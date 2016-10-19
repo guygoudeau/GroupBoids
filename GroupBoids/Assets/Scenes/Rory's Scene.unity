@@ -285,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 840615963}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.22, y: 1, z: 1.22}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1311702705}
@@ -669,6 +669,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: b6a45d7eb9e36c341afc1111c658364b, type: 3}
   - {fileID: 2800000, guid: 99e17495e0a05cf45b0c74d6dced3c1d, type: 3}
   - {fileID: 2800000, guid: ac98b0dc8534a004db7b3d91bea1bfef, type: 3}
+  boidCounter: 0
+  survival: 0
 --- !u!4 &1364997853
 Transform:
   m_ObjectHideFlags: 0
