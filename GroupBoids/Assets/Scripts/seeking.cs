@@ -6,6 +6,7 @@ using UnityEditor;
 public class seeking : MonoBehaviour
 {
     public GameObject Target;
+    public GameObject PreviousTarget;
     private Vector3 desiredVelocity;
     private Vector3 Displacement;
     private Vector3 Steering;
@@ -52,22 +53,24 @@ public class seeking : MonoBehaviour
     {
         currenttime = resetTime;
         Behavior = false;
-        
-
     }
     void OnTriggerEnter(Collider enemy) //A function that is called when the enters a rigidbody.
     {
         if (enemy.gameObject.name == "Wall")  //Checks to see if the Owner's barrel is a chainsaw.
+        {
+            if (Target.name == "Player" && PreviousTarget.name == "Boss")
             {
-                hitSource.Play();
-                float mag = Utilities.AVec3toUVec3(agent.Velocity).magnitude;
-                agent.Velocity = Utilities.UVec3toAVec3((transform.position - Target.transform.position).normalized * mag * 1.1f);
+                Debug.Log("Can hit the Boss");
+                reset();
             }
+            
+            hitSource.Play();
+            float mag = Utilities.AVec3toUVec3(agent.Velocity).magnitude;
+            agent.Velocity = Utilities.UVec3toAVec3((transform.position - Target.transform.position).normalized * mag * 1.1f);
+        }
         if (enemy.gameObject.GetComponent<PlayerInputManager>() != null)  //Checks to see if the Owner's barrel is a chainsaw.
         {
-            
             reset();
-            
         }
     }
 
@@ -77,6 +80,7 @@ public class seeking : MonoBehaviour
         hitSource = gameObject.GetComponent<AudioSource>();
         agent = gameObject.GetComponent<MonoAgent>().agent;
         agent.Velocity = Utilities.UVec3toAVec3(Norm(gameObject.transform.position)); // sets strating velocity  
+        PreviousTarget = Target;
     }
 
     // Update is called once per frame
@@ -87,7 +91,11 @@ public class seeking : MonoBehaviour
                 Behavior = true;
                 currenttime = resetTime;
             }
-        if (Behavior == true)
+        if(Target.name == "Player" && PreviousTarget.name == "Boss" && Behavior == false)
+        {
+            currenttime = currenttime - Time.deltaTime;
+        }
+        else if (Behavior == true)
         {
             seek();
         }
@@ -95,7 +103,6 @@ public class seeking : MonoBehaviour
         {
             avoid();
             currenttime = currenttime - Time.deltaTime;
-
         }
     }
 }
