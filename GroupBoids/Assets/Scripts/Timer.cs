@@ -12,10 +12,10 @@ public class Timer : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        var minutes = time / 60;
-        var seconds = time % 60;
-        var fraction = (time * 100) % 100;
+        int minutes = Mathf.FloorToInt(time / 60F);
+        int seconds = Mathf.FloorToInt(time - minutes * 60);
+        string niceTime = string.Format("{0:00}:{1:00}", minutes, seconds);
 
-        timerLabel.text = string.Format("{0:00} : {1:00} : {2:000}", minutes, seconds, fraction);
+        timerLabel.text = niceTime;
     }
 }
