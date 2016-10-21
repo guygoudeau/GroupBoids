@@ -189,7 +189,7 @@ MonoBehaviour:
   sM: 1
   avM: 0
   mass: 10
-  speed: 0.5
+  speed: 4
   radius: 1
   ArrStr: 0
   aM: 0
