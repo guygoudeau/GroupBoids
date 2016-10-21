@@ -3416,7 +3416,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'WASD keys move the player
 
-    Mouse movement rotates barrier'
+    Mouse movement rotates barrier
+
+    P to pause and unpause in play'
 --- !u!222 &1919706415
 CanvasRenderer:
   m_ObjectHideFlags: 0

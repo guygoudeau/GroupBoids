@@ -1309,6 +1309,14 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11421498, guid: 3e9941aefe182c84caf841326c7a34cb, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 283667383}
+    - target: {fileID: 11402628, guid: 3e9941aefe182c84caf841326c7a34cb, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 283667383}
     - target: {fileID: 22483082, guid: 3e9941aefe182c84caf841326c7a34cb, type: 2}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -1316,22 +1324,6 @@ Prefab:
     - target: {fileID: 22483082, guid: 3e9941aefe182c84caf841326c7a34cb, type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11402628, guid: 3e9941aefe182c84caf841326c7a34cb, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 283667383}
-    - target: {fileID: 11402628, guid: 3e9941aefe182c84caf841326c7a34cb, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421498, guid: 3e9941aefe182c84caf841326c7a34cb, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 283667383}
-    - target: {fileID: 11421498, guid: 3e9941aefe182c84caf841326c7a34cb, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Mute
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e9941aefe182c84caf841326c7a34cb, type: 2}

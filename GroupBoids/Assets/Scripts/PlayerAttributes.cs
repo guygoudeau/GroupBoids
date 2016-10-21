@@ -8,7 +8,6 @@ public class PlayerAttributes : MonoBehaviour
     AudioSource hitSource;
     public int health;
     public string gameOverScene;
-    public Slider healthSlider;
     bool mesh = true;
     float resetTime = 20.0f;
     float currenttime;
@@ -44,8 +43,6 @@ public class PlayerAttributes : MonoBehaviour
                 transform.parent.gameObject.GetComponent<MeshRenderer>().enabled = true;
             }
         }
-
-        healthSlider.value = health;
 
         if (health <= 0)
         {
