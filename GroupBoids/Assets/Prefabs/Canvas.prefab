@@ -44,6 +44,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22476802}
   - 114: {fileID: 11409274}
+  - 114: {fileID: 114000011038277196}
   m_Layer: 5
   m_Name: P1Slider
   m_TagString: Untagged
@@ -1113,6 +1114,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerLabel: {fileID: 114000012484039692}
+--- !u!114 &114000011038277196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b61c88af3399e6429e4ae90ec15efec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011257644542
 MonoBehaviour:
   m_ObjectHideFlags: 1

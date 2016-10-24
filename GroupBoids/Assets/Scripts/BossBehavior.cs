@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class BossBehavior : MonoBehaviour {
 
-    public int Health = 10;
+    public int Health;
     public List<GameObject> Boids;
     public GameObject Target;   //Target Transform
     public Vector3 cV;              //Current Velocity
@@ -140,7 +140,7 @@ public class BossBehavior : MonoBehaviour {
                 {
                     if(other.gameObject.GetComponent<seeking>().Behavior == false)
                     {
-                        Health--;
+                        Health -= 1;
                         hitSource.Play();
                         Destroy(other.gameObject);
                     }
